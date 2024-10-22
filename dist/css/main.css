@@ -57,10 +57,87 @@ table {
 }
 
 body {
+  padding: 2em 1em;
   display: flex;
   justify-content: center;
   font-size: 16px;
   font-family: "Karla", sans-serif;
   background-color: var(--green-200);
-  background-color: #333;
+}
+
+.main {
+  padding: 1.5em;
+  background-color: var(--white);
+  border-radius: 0.8em;
+}
+.main__title {
+  margin-bottom: 0.7em;
+  color: var(--grey-900);
+}
+.main__form-wrapper {
+  margin-bottom: 1.2em;
+}
+.main__form-wrapper-label {
+  display: block;
+  margin-bottom: 0.4em;
+}
+.main__form-wrapper-label span {
+  color: var(--green-600);
+}
+.main__form-wrapper-input {
+  display: block;
+  width: 100%;
+  padding: 1em 0.7em;
+  border-radius: 0.5em;
+  border: 1px solid var(--grey-500);
+}
+.main__form-wrapper-error {
+  display: none;
+  margin-top: 0.2em;
+  color: var(--red);
+  font-style: italic;
+  font-size: 1.4rem;
+}
+.main__form-radio-wrapper {
+  margin-bottom: 1em;
+  padding: 0.7em 1.4em;
+  border-radius: 0.5em;
+  border: 1px solid var(--grey-500);
+  font-size: 1.7rem;
+}
+.main__form-radio-wrapper-label {
+  margin-left: 0.5em;
+}
+.main__form-message-textarea {
+  width: 100%;
+  min-height: 15.625em;
+  border-radius: 0.5em;
+  border: 1px solid var(--grey-500);
+}
+.main__form-check {
+  margin-top: 2.4em;
+  display: flex;
+  -moz-column-gap: 1em;
+       column-gap: 1em;
+}
+.main__form-check-input {
+  width: 1.58em;
+}
+.main__form-check-label {
+  padding-right: 0.5em;
+  color: var(--grey-900);
+}
+.main__form-btn {
+  margin-top: 3em;
+  padding: 1em 0;
+  width: 100%;
+  background-color: var(--green-600);
+  font-size: 1.8rem;
+  color: var(--white);
+  border-radius: 0.5em;
+}
+
+.popup {
+  position: absolute;
+  display: none;
 }/*# sourceMappingURL=main.css.map */

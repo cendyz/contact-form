@@ -1,5 +1,4 @@
-@mixin links {
-	font-size: 1.7rem;
-	font-weight: 400;
-	color: var(--very-dark-blue);
+@mixin border {
+	border-radius: 0.5em;
+	border: 1px solid var(--grey-500);
 }
