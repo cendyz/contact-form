@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Page</title>
+		<link rel="icon" type="image/x-icon" href="./src/images/favicon-32x32.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="./dist/css/main.css" />
+	</head>
+	<body>
+		<main class="main">
+			<h1 class="main__title">Contact Us</h1>
+			<form class="main__form">
+				<div class="main__form-wrapper">
+					<label for="name" class="main__form-wrapper-label">First Name <span>*</span></label>
+					<input type="text" class="main__form-wrapper-input" id="name" />
+					<p class="main__form-wrapper-error">Lorem, ipsum dolor.</p>
+				</div>
+				<div class="main__form-wrapper">
+					<label for="surname" class="main__form-wrapper-label">Last Name <span>*</span></label>
+					<input type="text" class="main__form-wrapper-input" id="surname" />
+					<p class="main__form-wrapper-error">Lorem, ipsum dolor.</p>
+				</div>
+				<div class="main__form-wrapper">
+					<label for="email" class="main__form-wrapper-label">Email Address <span>*</span></label>
+					<input type="email" class="main__form-wrapper-input" id="email" />
+					<p class="main__form-wrapper-error">Lorem, ipsum dolor.</p>
+				</div>
+				<div class="main__form-radio">
+					<p class="main__form-wrapper-label">Query Type <span>*</span></p>
+					<div class="main__form-radio-wrapper">
+						<input type="radio" class="main__form-radio-wrapper-input" id="radio-1" />
+						<label for="radio-1" class="main_form-radio-wrapper-label">General Enquiry</label>
+					</div>
+					<div class="main__form-radio-wrapper">
+						<input type="radio" class="main__form-radio-wrapper-input" id="radio-2" />
+						<label for="radio-2" class="main_form-radio-wrapper-label">Support Request</label>
+					</div>
+					<p class="main__form-wrapper-error">Lorem, ipsum dolor.</p>
+				</div>
+				<div class="main__form-message">
+					<label for="message" class="main__form-wrapper-label">Message <span>*</span></label>
+					<textarea id="message" class="main__form-message-textarea"></textarea>
+				</div>
+				<div class="main__form-check">
+					<input type="checkbox" class="main__form-check-input" />
+					<label for="checkbox" class="main__form-check-label"
+						>I consent to being contacted by the team <span>*</span></label
+					>
+				</div>
+				<button class="main__form-btn">Submit</button>
+				<p class="main__form-wrapper-error">To submit this form, please consent to being contacted</p>
+			</form>
+		</main>
+		<div class="popup">
+			<div class="popup__top">
+				<img src="./src/images/icon-success-check.svg" alt="Success icon" />
+				<p class="popup__confirm">Message Sent!</p>
+			</div>
+			<p class="popup__info">Thanks for completing the form. We'll be in touch soon!</p>
+		</div>
+
+		<script src="./src/main.js"></script>
+	</body>
+</html>
