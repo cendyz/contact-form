@@ -76,6 +76,9 @@ body {
   margin-bottom: 0.7em;
   color: var(--grey-900);
 }
+.main__form-wrapper {
+  margin-bottom: 1.5em;
+}
 .main__form-wrapper-label {
   display: block;
   margin-bottom: 0.4em;
