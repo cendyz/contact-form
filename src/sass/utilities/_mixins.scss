@@ -2,3 +2,11 @@
 	border-radius: 0.5em;
 	border: 1px solid var(--grey-500);
 }
+
+@mixin colorHover {
+	transition: border 0.2s;
+
+	&:hover {
+		border: 1px solid var(--green-600);
+	}
+}

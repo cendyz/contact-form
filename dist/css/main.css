@@ -60,6 +60,7 @@ body {
   padding: 2em 1em;
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 16px;
   font-family: "Karla", sans-serif;
   background-color: var(--green-200);
@@ -74,9 +75,6 @@ body {
 .main__title {
   margin-bottom: 0.7em;
   color: var(--grey-900);
-}
-.main__form-wrapper {
-  margin-bottom: 1.2em;
 }
 .main__form-wrapper-label {
   display: block;
@@ -129,6 +127,7 @@ body {
   margin-top: 1em;
 }
 .main__form-message-textarea {
+  padding: 1em;
   width: 100%;
   min-height: 15.625em;
   border-radius: 0.5em;
@@ -166,4 +165,110 @@ body {
 .popup {
   position: absolute;
   display: none;
+}
+
+@media (min-width: 992px) {
+  .main {
+    width: 650px;
+  }
+  .main__form {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    -moz-column-gap: 1em;
+         column-gap: 1em;
+    grid-template-areas: "one two" "three three" "four four" "five five" "six six" "seven seven" "eight eight";
+  }
+  .main__form .one {
+    grid-area: one;
+  }
+  .main__form .two {
+    grid-area: two;
+  }
+  .main__form .three {
+    grid-area: three;
+  }
+  .main__form .four {
+    grid-area: four;
+  }
+  .main__form .five {
+    grid-area: five;
+  }
+  .main__form .six {
+    grid-area: six;
+  }
+  .main__form .seven {
+    grid-area: seven;
+  }
+  .main__form .eight {
+    grid-area: eight;
+  }
+  .main__form-radio-wrapper {
+    transition: border 0.2s;
+  }
+  .main__form-radio-wrapper:hover {
+    border: 1px solid var(--green-600);
+  }
+  .main__form-message-textarea {
+    min-height: 90px;
+    transition: border 0.2s;
+  }
+  .main__form-message-textarea:hover {
+    border: 1px solid var(--green-600);
+  }
+  .main__form-wrapper {
+    margin-bottom: 1.2em;
+  }
+  .main__form-wrapper-input {
+    transition: border 0.2s;
+  }
+  .main__form-wrapper-input:hover {
+    border: 1px solid var(--green-600);
+  }
+  .main__form-radio {
+    display: grid;
+    -moz-column-gap: 1.2em;
+         column-gap: 1.2em;
+    grid-template-areas: "one one" "two three" "four four";
+  }
+  .main__form-radio .one {
+    grid-area: one;
+  }
+  .main__form-radio .two {
+    grid-area: two;
+  }
+  .main__form-radio .three {
+    grid-area: three;
+  }
+  .main__form-radio .four {
+    grid-area: four;
+  }
+  .main__form-radio-wrapper {
+    margin-bottom: 0;
+  }
+  .main__form-radio-wrapper-input {
+    cursor: pointer;
+  }
+  .main__form-check {
+    display: grid;
+    -moz-column-gap: 1.5em;
+         column-gap: 1.5em;
+    grid-template-columns: 0.05fr;
+  }
+  .main__form-check-img {
+    grid-area: 1/1/2/2;
+  }
+  .main__form-check-input {
+    grid-area: 1/1/2/2;
+    cursor: pointer;
+  }
+  .main__form-check-label {
+    grid-area: 1/2/2/3;
+    transition: color 0.2s;
+  }
+  .main__form-check-label:hover {
+    color: var(--green-600);
+  }
+  .main__form-btn {
+    margin-top: 2em;
+  }
 }/*# sourceMappingURL=main.css.map */

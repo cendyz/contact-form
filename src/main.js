@@ -4,22 +4,42 @@ const checkBox = document.querySelector("#check");
 const nameInput = document.querySelector("#name");
 const surnameInput = document.querySelector("#surname");
 const emailInput = document.querySelector("#email");
+const messageInput = document.querySelector("#message");
 const inputs = [nameInput, surnameInput, emailInput];
-// const radios = [radioBtnOne, radioBtnTwo];
+const radios = [radioBtnOne, radioBtnTwo];
 const radioArray = document.querySelectorAll(".main__form-radio-wrapper-input");
-const radioError = document.querySelector(".main__form-wrapper-error");
+const textError = document.querySelectorAll(".main__form-wrapper-error");
 const mainBtn = document.querySelector(".main__form-btn");
+const form = document.querySelector(".main__form");
 const regEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 const handleRadio = () => {
-const errorText = insertAdjacentHTML
-
-    
-	if (radioBtnOne.checked && radioBtnTwo.checked) {
-        radioError.style.display = 'none'
+	if (radioBtnOne.checked || radioBtnTwo.checked) {
+		textError[3].style.display = "none";
 	} else {
-        radioError.style.display = 'block'
-    }
+		textError[3].style.display = "block";
+		textError[3].textContent = "Please select a query type";
+	}
+};
+
+radios.forEach(radio => {
+	radio.addEventListener("click", () => {
+        radios.forEach(r => {
+            if (r.checked) {
+                r.closest(".main__form-radio-wrapper").style.backgroundColor = "hsl(148, 38%, 91%)";
+            } else {
+                r.closest(".main__form-radio-wrapper").style.backgroundColor = "white";
+            }
+        })
+	});
+});
+
+const checkCheck = () => {
+	if (checkBox.checked) {
+		textError[5].style.display = "none";
+	} else {
+		textError[5].style.display = "block";
+	}
 };
 
 const checkEmail = () => {
@@ -30,6 +50,21 @@ const checkEmail = () => {
 		emailInput.style.border = "1px solid hsl(0, 66%, 54%)";
 		emailSister.textContent = "Email is invalid";
 		emailSister.style.display = "block";
+	}
+};
+
+const checkMessage = () => {
+	if (messageInput.value === "") {
+		messageInput.style.border = "1px solid hsl(0, 66%, 54%)";
+		messageInput.nextElementSibling.style.display = "block";
+		messageInput.nextElementSibling.textContent = "This field is required";
+	} else if (messageInput.value.length < 10) {
+		messageInput.style.border = "1px solid hsl(0, 66%, 54%)";
+		messageInput.nextElementSibling.textContent = "There must be a minimum of 10 characters";
+		messageInput.nextElementSibling.style.display = "block";
+	} else {
+		messageInput.style.border = "1px solid hsl(186, 15%, 59%)";
+		messageInput.nextElementSibling.style.display = "none";
 	}
 };
 
@@ -54,6 +89,11 @@ const checkInputs = () => {
 			input.nextElementSibling.style.display = "none";
 		}
 	});
+
+	handleRadio();
+	checkCheck();
+	checkMessage();
+	checkCheck();
 };
 
 radioArray.forEach(radio => {
@@ -83,12 +123,19 @@ const checkRadio = () => {
 	});
 };
 
+const checkError = () => {
+	return Array.from(textError).every(err => err.style.display !== "block");
+};
+
 window.onload = () => {
 	radioBtnOne.checked = false;
 	radioBtnTwo.checked = false;
 	inputs.forEach(input => {
 		input.value = "";
 	});
+
+	messageInput.value = "";
+	checkBox.checked = false;
 };
 
 checkBox.addEventListener("click", () => {
@@ -99,12 +146,19 @@ checkBox.addEventListener("click", () => {
 	}
 });
 
+checkBox.addEventListener("click", () => {
+	textError[5].style.display = "none";
+});
+
+radios.forEach(radio => {
+	radio.addEventListener("focus", () => {
+		textError[3].style.display = "none";
+	});
+});
+
 mainBtn.addEventListener("click", () => {
 	event.preventDefault();
 	checkInputs();
-    handleRadio()
-});
 
-// else if (!regEmail.test(emailInput.value)) {
-// 			checkEmail()
-// 		}
+	if (checkError()) form.submit();
+});

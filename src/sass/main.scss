@@ -13,6 +13,7 @@ body {
 	padding: 2em 1em;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	font-size: 16px;
 	font-family: "Karla", sans-serif;
 	background-color: var(--green-200);
@@ -31,8 +32,6 @@ body {
 
 	&__form {
 		&-wrapper {
-			margin-bottom: 1.2em;
-
 			&-label {
 				display: block;
 				margin-bottom: 0.4em;
@@ -86,13 +85,13 @@ body {
 					z-index: 1;
 					opacity: 0;
 				}
-
 			}
 		}
 
 		&-message {
 			margin-top: 1em;
 			&-textarea {
+				padding: 1em;
 				width: 100%;
 				min-height: 15.625em;
 				@include border;
@@ -136,6 +135,130 @@ body {
 .popup {
 	position: absolute;
 	display: none;
+}
+
+@media (min-width: 992px) {
+	.main {
+		width: 650px;
+
+		&__form {
+			display: grid;
+			grid-template-columns: 0.5fr 0.5fr;
+			column-gap: 1em;
+			grid-template-areas:
+				"one two"
+				"three three"
+				"four four"
+				"five five"
+				"six six"
+				"seven seven"
+				"eight eight";
+
+			.one {
+				grid-area: one;
+			}
+			.two {
+				grid-area: two;
+			}
+			.three {
+				grid-area: three;
+			}
+			.four {
+				grid-area: four;
+			}
+			.five {
+				grid-area: five;
+			}
+			.six {
+				grid-area: six;
+			}
+			.seven {
+				grid-area: seven;
+			}
+			.eight {
+				grid-area: eight;
+			}
+
+			&-radio {
+				&-wrapper {
+					@include colorHover;
+				}
+			}
+
+			&-message {
+				&-textarea {
+					min-height: 90px;
+					@include colorHover;
+				}
+			}
+
+			&-wrapper {
+				margin-bottom: 1.2em;
+
+				&-input {
+					@include colorHover;
+				}
+			}
+
+	
+
+			&-radio {
+				display: grid;
+				column-gap: 1.2em;
+				grid-template-areas:
+					"one one"
+					"two three"
+					"four four";
+
+				.one {
+					grid-area: one;
+				}
+				.two {
+					grid-area: two;
+				}
+				.three {
+					grid-area: three;
+				}
+				.four {
+					grid-area: four;
+				}
+
+				&-wrapper {
+					margin-bottom: 0;
+					
+
+					&-input {
+						cursor: pointer;
+					}
+				}
+			}
+
+			&-check {
+				display: grid;
+				column-gap: 1.5em;
+				grid-template-columns: 0.05fr;
+				&-img {
+					grid-area: 1/1/2/2;
+				}
+				&-input {
+					grid-area: 1/1/2/2;
+					cursor: pointer;
+				}
+				&-label {
+					grid-area: 1/2/2/3;
+					transition: color 0.2s;
+
+					&:hover {
+						color: var(--green-600);
+					}
+				}
+			}
+
+			&-btn {
+				margin-top: 2em;
+			}
+		}
+	}
 }
 
 // - Mobile: 375px
