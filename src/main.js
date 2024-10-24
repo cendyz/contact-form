@@ -1,47 +1,110 @@
+const radioBtnOne = document.querySelector("#radio-1");
+const radioBtnTwo = document.querySelector("#radio-2");
+const checkBox = document.querySelector("#check");
 const nameInput = document.querySelector("#name");
 const surnameInput = document.querySelector("#surname");
 const emailInput = document.querySelector("#email");
-const radioOneInput = document.querySelector("#radio-1");
-const radioTwoInput = document.querySelector("#radio-2");
 const inputs = [nameInput, surnameInput, emailInput];
-const errorText = document.querySelectorAll(".main__form-wrapper-error");
-const btn = document.querySelector(".main__form-btn");
-const emailRegex = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/gim;
+// const radios = [radioBtnOne, radioBtnTwo];
+const radioArray = document.querySelectorAll(".main__form-radio-wrapper-input");
+const radioError = document.querySelector(".main__form-wrapper-error");
+const mainBtn = document.querySelector(".main__form-btn");
+const regEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-const setError = (input, index, message) => {
-	input.style.border = "1px solid hsl(0, 66%, 54%)";
-	errorText[index].style.display = "block";
-	errorText[index].textContent = message;
-};
+const handleRadio = () => {
+const errorText = insertAdjacentHTML
 
-const boxError = (input, index, message) => {
-	errorText[index].style.display = "block";
-	errorText[index].textContent = message;
-};
-
-const clearError = (input, index) => {
-	errorText[index].style.display = "none";
-	input.style.border = "1px solid hsl(186, 15%, 59%)";
-};
-
-const checkInputs = (input, index) => {
-	if (input.value === "" || input.value.length < 4) {
-		setError(input, index, "This field is required");
-	} else if (input.id === 'email' && !emailRegex.test(emailInput.value)) {
-		setError(input, index, "Please enter a valid email address");
+    
+	if (radioBtnOne.checked && radioBtnTwo.checked) {
+        radioError.style.display = 'none'
 	} else {
-		clearError(input, index);
+        radioError.style.display = 'block'
+    }
+};
+
+const checkEmail = () => {
+	const emailSister = emailInput.nextElementSibling;
+	if (regEmail.test(emailInput.value)) {
+		checkInputs();
+	} else {
+		emailInput.style.border = "1px solid hsl(0, 66%, 54%)";
+		emailSister.textContent = "Email is invalid";
+		emailSister.style.display = "block";
 	}
 };
 
-btn.addEventListener("click", () => {
-	event.preventDefault();
-	inputs.forEach((input, index) => checkInputs(input, index))
+const checkInputs = () => {
+	const emailSister = emailInput.nextElementSibling;
+
+	inputs.forEach(input => {
+		if (input.value === "") {
+			input.style.border = "1px solid hsl(0, 66%, 54%)";
+			input.nextElementSibling.style.display = "block";
+			input.nextElementSibling.textContent = "This field is required";
+		} else if (input.value.length < 4) {
+			input.style.border = "1px solid hsl(0, 66%, 54%)";
+			input.nextElementSibling.style.display = "block";
+			input.nextElementSibling.textContent = "There must be a minimum of 4 characters";
+		} else if (!regEmail.test(emailInput.value)) {
+			emailInput.style.border = "1px solid hsl(0, 66%, 54%)";
+			emailSister.textContent = "Email is invalid";
+			emailSister.style.display = "block";
+		} else {
+			input.style.border = "1px solid hsl(186, 15%, 59%)";
+			input.nextElementSibling.style.display = "none";
+		}
+	});
+};
+
+radioArray.forEach(radio => {
+	radio.addEventListener("click", () => {
+		radioArray.forEach(box => {
+			const boxImg = box.previousElementSibling;
+			if (box.checked) {
+				box.style.opacity = "0";
+				boxImg.style.opacity = "1";
+			} else {
+				boxImg.style.opacity = "0";
+				box.style.opacity = "1";
+			}
+		});
+	});
 });
 
+const checkRadio = () => {
+	radioArray.forEach(radio => {
+		if (radio.checked === false) {
+			radio.style.display = "block";
+			radioImg.style.display = "none";
+		} else {
+			radio.style.display = "none";
+			radioImg.style.display = "block";
+		}
+	});
+};
+
 window.onload = () => {
+	radioBtnOne.checked = false;
+	radioBtnTwo.checked = false;
 	inputs.forEach(input => {
-		input.checked = false;
 		input.value = "";
 	});
 };
+
+checkBox.addEventListener("click", () => {
+	if (checkBox.checked) {
+		checkBox.style.opacity = "0";
+	} else {
+		checkBox.style.opacity = "1";
+	}
+});
+
+mainBtn.addEventListener("click", () => {
+	event.preventDefault();
+	checkInputs();
+    handleRadio()
+});
+
+// else if (!regEmail.test(emailInput.value)) {
+// 			checkEmail()
+// 		}

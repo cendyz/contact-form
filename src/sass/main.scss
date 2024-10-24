@@ -58,20 +58,35 @@ body {
 			}
 		}
 		&-radio {
-			
 			&-wrapper {
+				display: grid;
+				grid-template-columns: 0.1fr;
+				grid-template-rows: 1fr;
 				margin-bottom: 1em;
 				padding: 0.7em 1.4em;
 				@include border;
 				font-size: 1.7rem;
 
-				&:nth-child(3){
+				&:nth-child(3) {
 					margin-bottom: 0;
 				}
 
 				&-label {
+					grid-area: 1/2/2/3;
 					margin-left: 0.5em;
 				}
+
+				&-input {
+					grid-area: 1/1/2/2;
+					z-index: 2;
+				}
+
+				&-img {
+					grid-area: 1/1/2/2;
+					z-index: 1;
+					opacity: 0;
+				}
+
 			}
 		}
 
@@ -85,15 +100,22 @@ body {
 		}
 
 		&-check {
+			display: grid;
 			margin-top: 2.4em;
-			display: flex;
 			column-gap: 1em;
 
+			&-img {
+				grid-area: 1/1/2/2;
+				z-index: 1;
+			}
+
 			&-input {
-				width: 1.58em;
+				grid-area: 1/1/2/2;
+				z-index: 2;
 			}
 
 			&-label {
+				grid-area: 1/2/2/3;
 				padding-right: 0.5em;
 				color: var(--grey-900);
 			}
@@ -106,7 +128,7 @@ body {
 			background-color: var(--green-600);
 			font-size: 1.8rem;
 			color: var(--white);
-			border-radius: .5em;
+			border-radius: 0.5em;
 		}
 	}
 }
