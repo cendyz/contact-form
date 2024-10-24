@@ -11,8 +11,12 @@ const radioArray = document.querySelectorAll(".main__form-radio-wrapper-input");
 const textError = document.querySelectorAll(".main__form-wrapper-error");
 const mainBtn = document.querySelector(".main__form-btn");
 const form = document.querySelector(".main__form");
+const test = document.querySelector(".main__form + .popup");
 const popupt = document.querySelector(".popup");
 const regEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+console.log(test);
+
 
 const handleRadio = () => {
 	if (radioBtnOne.checked || radioBtnTwo.checked) {

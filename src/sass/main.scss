@@ -154,7 +154,7 @@ body {
 
 @media (min-width: 992px) {
 	.main {
-		width: 650px;
+		width: 40.625em;
 
 		&__form {
 			display: grid;
@@ -202,7 +202,7 @@ body {
 
 			&-message {
 				&-textarea {
-					min-height: 90px;
+					min-height: 5.625em;
 					@include colorHover;
 				}
 			}
