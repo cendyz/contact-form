@@ -164,7 +164,21 @@ body {
 
 .popup {
   position: absolute;
-  display: none;
+  padding: 1.5em;
+  left: 50%;
+  top: -25%;
+  transform: translateX(-50%);
+  background-color: var(--grey-900);
+  color: white;
+  border-radius: 1em;
+  transition: top 0.3s;
+  z-index: 10;
+}
+.popup__top {
+  margin-bottom: 0.7em;
+  display: flex;
+  -moz-column-gap: 0.5em;
+       column-gap: 0.5em;
 }
 
 @media (min-width: 992px) {
@@ -203,14 +217,14 @@ body {
     grid-area: eight;
   }
   .main__form-radio-wrapper {
-    transition: border 0.2s;
+    transition: border 0.2s, background-color 0.2s;
   }
   .main__form-radio-wrapper:hover {
     border: 1px solid var(--green-600);
   }
   .main__form-message-textarea {
     min-height: 90px;
-    transition: border 0.2s;
+    transition: border 0.2s, background-color 0.2s;
   }
   .main__form-message-textarea:hover {
     border: 1px solid var(--green-600);
@@ -219,7 +233,7 @@ body {
     margin-bottom: 1.2em;
   }
   .main__form-wrapper-input {
-    transition: border 0.2s;
+    transition: border 0.2s, background-color 0.2s;
   }
   .main__form-wrapper-input:hover {
     border: 1px solid var(--green-600);
@@ -270,5 +284,9 @@ body {
   }
   .main__form-btn {
     margin-top: 2em;
+    transition: background-color 0.2s;
+  }
+  .main__form-btn:hover {
+    background-color: hsl(187, 44%, 42%);
   }
 }/*# sourceMappingURL=main.css.map */

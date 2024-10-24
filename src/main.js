@@ -11,6 +11,7 @@ const radioArray = document.querySelectorAll(".main__form-radio-wrapper-input");
 const textError = document.querySelectorAll(".main__form-wrapper-error");
 const mainBtn = document.querySelector(".main__form-btn");
 const form = document.querySelector(".main__form");
+const popupt = document.querySelector(".popup");
 const regEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 const handleRadio = () => {
@@ -24,13 +25,13 @@ const handleRadio = () => {
 
 radios.forEach(radio => {
 	radio.addEventListener("click", () => {
-        radios.forEach(r => {
-            if (r.checked) {
-                r.closest(".main__form-radio-wrapper").style.backgroundColor = "hsl(148, 38%, 91%)";
-            } else {
-                r.closest(".main__form-radio-wrapper").style.backgroundColor = "white";
-            }
-        })
+		radios.forEach(r => {
+			if (r.checked) {
+				r.closest(".main__form-radio-wrapper").style.backgroundColor = "hsl(148, 38%, 91%)";
+			} else {
+				r.closest(".main__form-radio-wrapper").style.backgroundColor = "white";
+			}
+		});
 	});
 });
 
@@ -159,6 +160,11 @@ radios.forEach(radio => {
 mainBtn.addEventListener("click", () => {
 	event.preventDefault();
 	checkInputs();
+	if (checkError()) {
+		popupt.style.top = "5%";
 
-	if (checkError()) form.submit();
+		setTimeout(() => {
+			form.submit();
+		}, 1700);
+	}
 });

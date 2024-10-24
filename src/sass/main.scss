@@ -134,7 +134,21 @@ body {
 
 .popup {
 	position: absolute;
-	display: none;
+	padding: 1.5em;
+	left: 50%;
+	top: -25%;
+	transform: translateX(-50%);
+	background-color: var(--grey-900);
+	color: white;
+	border-radius: 1em;
+	transition: top 0.3s;
+	z-index: 10;
+
+	&__top {
+		margin-bottom: 0.7em;
+		display: flex;
+		column-gap: 0.5em;
+	}
 }
 
 @media (min-width: 992px) {
@@ -200,8 +214,6 @@ body {
 				}
 			}
 
-	
-
 			&-radio {
 				display: grid;
 				column-gap: 1.2em;
@@ -225,7 +237,6 @@ body {
 
 				&-wrapper {
 					margin-bottom: 0;
-					
 
 					&-input {
 						cursor: pointer;
@@ -256,12 +267,12 @@ body {
 
 			&-btn {
 				margin-top: 2em;
+				transition: background-color 0.2s;
+
+				&:hover {
+					background-color: hsl(187, 44%, 42%);
+				}
 			}
 		}
 	}
 }
-
-// - Mobile: 375px
-// - Desktop: 1440px
-
-// - Weights: 400, 700

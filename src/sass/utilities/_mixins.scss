@@ -4,7 +4,7 @@
 }
 
 @mixin colorHover {
-	transition: border 0.2s;
+	transition: border 0.2s, background-color .2s;
 
 	&:hover {
 		border: 1px solid var(--green-600);
